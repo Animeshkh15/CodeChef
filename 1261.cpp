@@ -1,0 +1,45 @@
+#include<iostream>
+#include<algorithm>
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while (t--)
+    {
+        int n,c=0,b=0;
+        cin>>n;
+        int a[n];
+        for (int i = 0; i < n; i++)
+        {
+            cin>>a[i];
+        }
+        sort(a, a+n, greater<int>());
+        for (int i = 0; i < n-1; i++)
+        {
+            if (a[i]==a[i+1])
+            {
+                if(c==0){
+                    c=a[i];
+                    i++;
+                }
+                else
+                {
+                    b=a[i];
+                    i++;
+                    break;
+                }  
+            }
+            
+        }
+        if(b==0){
+            cout<<"-1"<<endl;
+        }
+        else{
+            cout<<c*b<<endl;
+        }
+        
+    }
+    
+    return 0;
+}   
